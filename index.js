@@ -50,7 +50,7 @@ ${from ? `**보낸이**: ${from}` : ""}
 **미리보기** ${snippet ? `${snippet.slice(0, 100)}...` : ""}
 `;
     })
-    .join("\n--------------\n")}
+    .join("\n")}
 `.trim();
 
   return message;
