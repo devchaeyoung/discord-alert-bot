@@ -18,7 +18,6 @@ function formatKoreanDate(dateString) {
 function buildDiscordMessage(data) {
   const now = Date.now();
   const tenMinutes = 10 * 60 * 1000;
-  const keywordRegex = /(결제|협찬|문의)/;
 
   const emails = Array.isArray(data.emails) ? data.emails : [];
 
@@ -28,11 +27,7 @@ function buildDiscordMessage(data) {
 
     const within10min = diff >= 0 && diff <= tenMinutes;
 
-    const subject = email.subject || "";
-    const snippet = email.contentSnippet || "";
-    const hasKeyword = keywordRegex.test(subject) || keywordRegex.test(snippet);
-
-    return within10min && hasKeyword;
+    return within10min;
   });
 
   if (filtered.length === 0) return null;
