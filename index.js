@@ -11,7 +11,7 @@ function formatKoreanDate(dateString) {
   const hours = kr.getHours().toString().padStart(2, "0");
   const minutes = kr.getMinutes().toString().padStart(2, "0");
 
-  return `${month}월 ${day}일 ${weekday} ${hours}:${minutes}`;
+  return `${month}월 ${day}일 ${weekday} ${hours}시 ${minutes}분`;
 }
 
 
@@ -38,7 +38,7 @@ function buildDiscordMessage(data) {
   if (filtered.length === 0) return null;
 
   const message = `
-### 📨 10분 내 미확인 메일 알림 (${filtered.length}건)
+## 📨 10분 내 미확인 메일 알림 (${filtered.length}건)
 
 ${filtered
     .map((email, i) => {
@@ -48,10 +48,10 @@ ${filtered
       const formattedDate = formatKoreanDate(email.date);
 
       return `
-[${i + 1}] **${subject}**
+[${i + 1}]제목: **${subject}**
 ${from ? `보낸이: ${from}` : ""}
 날짜: ${formattedDate}
-내용 미리보기: ${snippet ? `\`\`\`\n${snippet}\n\`\`\`` : ""}
+미리보기: ${snippet ? `${snippet.slice(0, 100)}...` : ""}
 `;
     })
     .join("\n--------------\n")}
