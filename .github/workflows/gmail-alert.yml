@@ -1,4 +1,4 @@
-name: Discord Email Notify
+name: Discord Notify Bot
 
 on:
   workflow_dispatch:
