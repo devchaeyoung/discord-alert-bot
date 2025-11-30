@@ -51,7 +51,6 @@ ${from ? `**보낸이**: ${from}` : ""}
 `;
     })
     .join("")}
--------------
 `.trim();
 
   return message;
