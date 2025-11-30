@@ -48,10 +48,11 @@ ${filtered
       const formattedDate = formatKoreanDate(email.date);
 
       return `
-[${i + 1}]제목: **${subject}**
-${from ? `보낸이: ${from}` : ""}
-날짜: ${formattedDate}
-미리보기: ${snippet ? `${snippet.slice(0, 100)}...` : ""}
+### :label: ${i + 1}번째 미확인 메일
+**제목** ${subject}
+${from ? `**보낸이**: ${from}` : ""}
+**시간** ${formattedDate}
+**미리보기** ${snippet ? `${snippet.slice(0, 100)}...` : ""}
 `;
     })
     .join("\n--------------\n")}
