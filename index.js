@@ -47,10 +47,10 @@ ${filtered
 **제목** ${subject}
 ${from ? `**보낸이**: ${from}` : ""}
 **시간** ${formattedDate}
-**미리보기** ${snippet ? `${snippet.slice(0, 100)}...` : ""}
+**미리보기** ${snippet ? `${snippet}...` : ""}
 `;
     })
-    .join("\n")}
+    .join("")}
 `.trim();
 
   return message;
