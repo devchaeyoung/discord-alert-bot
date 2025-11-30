@@ -18,13 +18,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+
       - name: Install dependencies
-        if: exists('package.json')
         run: npm ci
 
       - name: Run notify script
         env:
           SOURCE_URL: ${{ secrets.SOURCE_URL }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        run: |
-          node index.js
+        run: node index.js
